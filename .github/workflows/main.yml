@@ -3,6 +3,8 @@ on:
   push:
 jobs:
   endproject:
+    env:
+     appName: "docker-image"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,4 +29,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/githubactionimage:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.appName }}:latest
